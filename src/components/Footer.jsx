@@ -23,8 +23,8 @@ const Footer = () => {
                   className="w-10 h-10 rounded-full shadow-lg border-2 border-gray-600"
                 />
                 <div>
+                  <p className="text-sm text-gray-400">Powered by</p>
                   <h4 className="text-lg font-semibold text-white">ISA ERP Pvt Ltd</h4>
-                  <p className="text-sm text-gray-400">Healthcare Technology</p>
                 </div>
               </div>
               <p className="text-gray-300 text-sm leading-relaxed">
