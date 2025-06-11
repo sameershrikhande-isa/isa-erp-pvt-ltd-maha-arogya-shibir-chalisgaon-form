@@ -102,76 +102,76 @@ const ContactForm = () => {
       <Header />
 
       {/* Main Content */}
-      <main className="flex-1 py-4 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-sm mx-auto">
+      <main className="flex-1 py-4 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
           <div className="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100">
             {/* Form Section */}
-            <div className="px-5 py-5">
-              <h2 className="text-lg font-semibold mb-5 text-gray-800 text-center">
+            <div className="px-5 sm:px-6 lg:px-8 py-5 sm:py-6 lg:py-8">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-5 sm:mb-6 lg:mb-8 text-gray-800 text-center">
                 Registration Form
               </h2>
               
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5 lg:space-y-6">
                 {/* Full Name Field */}
                 <div>
-                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="fullName" className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
                     Full Name *
                   </label>
                   <input
                     id="fullName"
                     type="text"
                     {...register('fullName')}
-                    className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder="Enter your full name"
                   />
                   {errors.fullName && (
-                    <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>
+                    <p className="text-red-500 text-xs sm:text-sm mt-1 sm:mt-2">{errors.fullName.message}</p>
                   )}
                 </div>
 
                 {/* Mobile Number Field */}
                 <div>
-                  <label htmlFor="mobileNumber" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="mobileNumber" className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
                     Mobile Number *
                   </label>
                   <input
                     id="mobileNumber"
                     type="tel"
                     {...register('mobileNumber')}
-                    className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder="1234567890"
                   />
                   {errors.mobileNumber && (
-                    <p className="text-red-500 text-xs mt-1">{errors.mobileNumber.message}</p>
+                    <p className="text-red-500 text-xs sm:text-sm mt-1 sm:mt-2">{errors.mobileNumber.message}</p>
                   )}
                 </div>
 
                 {/* Village Field */}
                 <div>
-                  <label htmlFor="village" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="village" className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
                     Village
                   </label>
                   <input
                     id="village"
                     type="text"
                     {...register('village')}
-                    className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder="Enter your village (optional)"
                   />
                   {errors.village && (
-                    <p className="text-red-500 text-xs mt-1">{errors.village.message}</p>
+                    <p className="text-red-500 text-xs sm:text-sm mt-1 sm:mt-2">{errors.village.message}</p>
                   )}
                 </div>
 
                 {/* Checkup Category Field */}
                 <div>
-                  <label htmlFor="checkupCategory" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="checkupCategory" className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2">
                     Checkup Category *
                   </label>
                   <select
                     id="checkupCategory"
                     {...register('checkupCategory')}
-                    className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors appearance-none bg-white"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors appearance-none bg-white"
                   >
                     <option value="">Select checkup category</option>
                     {checkupCategories.map((category) => (
@@ -181,7 +181,7 @@ const ContactForm = () => {
                     ))}
                   </select>
                   {errors.checkupCategory && (
-                    <p className="text-red-500 text-xs mt-1">{errors.checkupCategory.message}</p>
+                    <p className="text-red-500 text-xs sm:text-sm mt-1 sm:mt-2">{errors.checkupCategory.message}</p>
                   )}
                 </div>
 
@@ -189,7 +189,7 @@ const ContactForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed text-white font-medium py-3 px-4 rounded-md transition-colors duration-200 text-sm mt-6 touch-manipulation shadow-md hover:shadow-lg"
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed text-white font-medium py-3 sm:py-4 px-4 sm:px-6 rounded-md transition-colors duration-200 text-sm sm:text-base mt-6 sm:mt-8 touch-manipulation shadow-md hover:shadow-lg"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit Registration'}
                 </button>
