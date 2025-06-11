@@ -71,7 +71,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col">
       {/* Notification Popup */}
       {notification.show && (
         <div className={`fixed top-4 left-4 right-4 mx-auto max-w-md z-50 p-4 rounded-lg shadow-lg transition-all duration-300 ${
@@ -96,111 +96,126 @@ const ContactForm = () => {
         </div>
       )}
 
-      <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-        {/* Header Section */}
-        <div className="bg-blue-600 text-white px-6 py-6 text-center">
-          <h1 className="text-xl sm:text-2xl font-bold mb-2">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+        <div className="max-w-4xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center">
             Maha Arogya Shibir Chalisgaon
           </h1>
-          <p className="text-sm sm:text-base mb-1 opacity-90">
-            Rotary Club Thane Northend (3142)
-          </p>
-          <p className="text-xs opacity-75">
-            Powered by - ISA ERP Pvt Ltd
-          </p>
         </div>
+      </header>
 
-        {/* Form Section */}
-        <div className="px-6 py-6">
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 text-gray-800 text-center">
-            Registration Form
-          </h2>
-          
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-            {/* Full Name Field */}
-            <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name *
-              </label>
-              <input
-                id="fullName"
-                type="text"
-                {...register('fullName')}
-                className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                placeholder="Enter your full name"
-              />
-              {errors.fullName && (
-                <p className="text-red-500 text-sm mt-2">{errors.fullName.message}</p>
-              )}
+      {/* Main Content */}
+      <main className="flex-1 py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md mx-auto">
+          <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+            {/* Form Section */}
+            <div className="px-6 py-8">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-8 text-gray-800 text-center">
+                Registration Form
+              </h2>
+              
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                {/* Full Name Field */}
+                <div>
+                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    id="fullName"
+                    type="text"
+                    {...register('fullName')}
+                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="Enter your full name"
+                  />
+                  {errors.fullName && (
+                    <p className="text-red-500 text-sm mt-2">{errors.fullName.message}</p>
+                  )}
+                </div>
+
+                {/* Mobile Number Field */}
+                <div>
+                  <label htmlFor="mobileNumber" className="block text-sm font-medium text-gray-700 mb-2">
+                    Mobile Number *
+                  </label>
+                  <input
+                    id="mobileNumber"
+                    type="tel"
+                    {...register('mobileNumber')}
+                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="1234567890"
+                  />
+                  {errors.mobileNumber && (
+                    <p className="text-red-500 text-sm mt-2">{errors.mobileNumber.message}</p>
+                  )}
+                </div>
+
+                {/* Village Field */}
+                <div>
+                  <label htmlFor="village" className="block text-sm font-medium text-gray-700 mb-2">
+                    Village
+                  </label>
+                  <input
+                    id="village"
+                    type="text"
+                    {...register('village')}
+                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="Enter your village (optional)"
+                  />
+                  {errors.village && (
+                    <p className="text-red-500 text-sm mt-2">{errors.village.message}</p>
+                  )}
+                </div>
+
+                {/* Checkup Category Field */}
+                <div>
+                  <label htmlFor="checkupCategory" className="block text-sm font-medium text-gray-700 mb-2">
+                    Checkup Category *
+                  </label>
+                  <select
+                    id="checkupCategory"
+                    {...register('checkupCategory')}
+                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors appearance-none bg-white"
+                  >
+                    <option value="">Select checkup category</option>
+                    {checkupCategories.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.checkupCategory && (
+                    <p className="text-red-500 text-sm mt-2">{errors.checkupCategory.message}</p>
+                  )}
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 text-base mt-8 touch-manipulation shadow-lg hover:shadow-xl"
+                >
+                  {isSubmitting ? 'Submitting...' : 'Submit Registration'}
+                </button>
+              </form>
             </div>
-
-            {/* Mobile Number Field */}
-            <div>
-              <label htmlFor="mobileNumber" className="block text-sm font-medium text-gray-700 mb-2">
-                Mobile Number *
-              </label>
-              <input
-                id="mobileNumber"
-                type="tel"
-                {...register('mobileNumber')}
-                className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                placeholder="1234567890"
-              />
-              {errors.mobileNumber && (
-                <p className="text-red-500 text-sm mt-2">{errors.mobileNumber.message}</p>
-              )}
-            </div>
-
-            {/* Village Field */}
-            <div>
-              <label htmlFor="village" className="block text-sm font-medium text-gray-700 mb-2">
-                Village
-              </label>
-              <input
-                id="village"
-                type="text"
-                {...register('village')}
-                className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                placeholder="Enter your village (optional)"
-              />
-              {errors.village && (
-                <p className="text-red-500 text-sm mt-2">{errors.village.message}</p>
-              )}
-            </div>
-
-            {/* Checkup Category Field */}
-            <div>
-              <label htmlFor="checkupCategory" className="block text-sm font-medium text-gray-700 mb-2">
-                Checkup Category *
-              </label>
-              <select
-                id="checkupCategory"
-                {...register('checkupCategory')}
-                className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors appearance-none bg-white"
-              >
-                <option value="">Select checkup category</option>
-                {checkupCategories.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-              {errors.checkupCategory && (
-                <p className="text-red-500 text-sm mt-2">{errors.checkupCategory.message}</p>
-              )}
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 text-base mt-6 touch-manipulation"
-            >
-              {isSubmitting ? 'Submitting...' : 'Submit Registration'}
-            </button>
-          </form>
+          </div>
         </div>
-      </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-sm sm:text-base mb-2 font-medium">
+              Rotary Club Thane Northend (3142)
+            </p>
+            <p className="text-xs sm:text-sm text-gray-300">
+              Powered by - ISA ERP Pvt Ltd
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
