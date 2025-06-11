@@ -8,7 +8,7 @@ const Header = () => {
         {/* Mobile Layout - Single Column */}
         <div className="lg:hidden text-center">
           {/* Main Event Title */}
-          <h1 className="mb-3">
+          <h1 className="mb-2">
             <span className="block text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white to-blue-50 bg-clip-text text-transparent tracking-tight leading-tight">
               Maha Arogya Shibir
             </span>
@@ -18,12 +18,12 @@ const Header = () => {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-blue-100 text-base sm:text-lg mb-4 font-light">
+          <p className="text-blue-100 text-base sm:text-lg mb-3 font-light">
             Healthcare Registration Portal
           </p>
           
           {/* Refined Decorative Element */}
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center mb-3">
             <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent w-20"></div>
             <div className="mx-3">
               <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
