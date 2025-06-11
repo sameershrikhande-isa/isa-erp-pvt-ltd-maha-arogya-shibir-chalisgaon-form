@@ -32,7 +32,7 @@ const Header = () => {
           </div>
           
           {/* Rotary Club Information */}
-          <p className="text-blue-100 text-base sm:text-2xl font-bold">
+          <p className="text-blue-100 text-lg sm:text-2xl font-bold">
             Rotary Club Thane Northend (3142)
           </p>
         </div>
@@ -70,10 +70,12 @@ const Header = () => {
                 Rotary Club Thane Northend
               </h3>
               <p className="text-blue-200 text-base xl:text-lg">
-                District No. 3142
+                District 3142
               </p>
               <div className="flex items-center justify-end space-x-2 mt-3">
-                <span className="font-bold text-blue-300">+</span>
+                <svg className="w-4 h-4 xl:w-5 xl:h-5 text-blue-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
                 <span className="text-blue-200 text-sm xl:text-base">Community Health Initiative</span>
               </div>
             </div>
