@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { useState } from 'react'
 
 const formSchema = z.object({
   fullName: z.string().min(2, 'Full name must be at least 2 characters'),
@@ -32,30 +33,69 @@ const ContactForm = () => {
     resolver: zodResolver(formSchema)
   })
 
+  const [notification, setNotification] = useState({ show: false, message: '', type: '' })
+
+  const showNotification = (message, type) => {
+    setNotification({ show: true, message, type })
+    setTimeout(() => {
+      setNotification({ show: false, message: '', type: '' })
+    }, 2000)
+  }
+
   const onSubmit = async (data) => {
-    const currentDate = new Date()
-    const formData = new FormData()
-    
-    formData.append(FULLNAME_FIELD, data.fullName)
-    formData.append(MOBILENUMBER_FIELD, data.mobileNumber)
-    if (data.village) {
-      formData.append(VILLAGE_FIELD, data.village)
+    try {
+      const currentDate = new Date()
+      const formData = new FormData()
+      
+      formData.append(FULLNAME_FIELD, data.fullName)
+      formData.append(MOBILENUMBER_FIELD, data.mobileNumber)
+      if (data.village) {
+        formData.append(VILLAGE_FIELD, data.village)
+      }
+      formData.append(CHECKUP_CATEGORY_FIELD, data.checkupCategory)
+      formData.append(DATE_YEAR_FIELD, currentDate.getFullYear().toString())
+      formData.append(DATE_MONTH_FIELD, (currentDate.getMonth() + 1).toString())
+      formData.append(DATE_DAY_FIELD, currentDate.getDate().toString())
+      
+      await fetch(GOOGLE_FORM_ACTION_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      })
+      
+      reset()
+      showNotification('Registration submitted successfully!', 'success')
+    } catch {
+      showNotification('Failed to submit registration. Please try again.', 'error')
     }
-    formData.append(CHECKUP_CATEGORY_FIELD, data.checkupCategory)
-    formData.append(DATE_YEAR_FIELD, currentDate.getFullYear().toString())
-    formData.append(DATE_MONTH_FIELD, (currentDate.getMonth() + 1).toString())
-    formData.append(DATE_DAY_FIELD, currentDate.getDate().toString())
-    
-    await fetch(GOOGLE_FORM_ACTION_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    })
-    reset()
   }
 
   return (
     <div className="min-h-screen bg-gray-50 py-4 px-4 sm:px-6 lg:px-8">
+      {/* Notification Popup */}
+      {notification.show && (
+        <div className={`fixed top-4 left-4 right-4 mx-auto max-w-md z-50 p-4 rounded-lg shadow-lg transition-all duration-300 ${
+          notification.type === 'success' 
+            ? 'bg-green-500 text-white' 
+            : 'bg-red-500 text-white'
+        }`}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              {notification.type === 'success' ? (
+                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              )}
+              <span className="text-sm font-medium">{notification.message}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         {/* Header Section */}
         <div className="bg-blue-600 text-white px-6 py-6 text-center">
