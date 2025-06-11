@@ -4,7 +4,7 @@ const Header = () => {
       {/* Subtle Background Enhancement */}
       <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
       
-      <div className="relative max-w-6xl mx-auto px-6 py-8">
+      <div className="relative max-w-6xl mx-auto px-6 py-6 sm:py-8">
         {/* Mobile Layout - Single Column */}
         <div className="lg:hidden text-center">
           {/* Main Event Title */}

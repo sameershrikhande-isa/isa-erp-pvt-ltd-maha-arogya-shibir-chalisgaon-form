@@ -14,8 +14,8 @@ const Footer = () => {
               className="w-5 h-5 rounded-full opacity-80"
             />
             <span>ISA ERP Pvt Ltd</span>
-            <span>•</span>
-            <span>© {currentYear}</span>
+            {/* <span>•</span>
+            <span>© {currentYear}</span> */}
           </div>
         </div>
       </div>
