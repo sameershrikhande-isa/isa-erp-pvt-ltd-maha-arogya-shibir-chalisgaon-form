@@ -42,7 +42,7 @@ const Header = () => {
           {/* Left Section - Event Information */}
           <div className="text-left pr-8 lg:pr-12">
             <h1 className="mb-2">
-              <span className="block text-4xl xl:text-5xl font-bold bg-gradient-to-r from-white to-blue-50 bg-clip-text text-transparent tracking-tight leading-tight">
+              <span className="block text-3xl xl:text-4xl font-bold bg-gradient-to-r from-white to-blue-50 bg-clip-text text-transparent tracking-tight leading-tight">
                 Maha Arogya Shibir
               </span>
               <span className="block text-2xl xl:text-3xl font-medium mt-1 text-blue-100 tracking-wide">
