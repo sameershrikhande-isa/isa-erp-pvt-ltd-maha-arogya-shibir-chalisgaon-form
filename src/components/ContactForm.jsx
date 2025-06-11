@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
+import Header from './Header'
+import Footer from './Footer'
 
 const formSchema = z.object({
   fullName: z.string().min(2, 'Full name must be at least 2 characters'),
@@ -97,18 +99,12 @@ const ContactForm = () => {
       )}
 
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
-        <div className="max-w-4xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center">
-            Maha Arogya Shibir Chalisgaon
-          </h1>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="flex-1 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md mx-auto">
-          <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+          <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100">
             {/* Form Section */}
             <div className="px-6 py-8">
               <h2 className="text-xl sm:text-2xl font-semibold mb-8 text-gray-800 text-center">
@@ -204,18 +200,7 @@ const ContactForm = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm sm:text-base mb-2 font-medium">
-              Rotary Club Thane Northend (3142)
-            </p>
-            <p className="text-xs sm:text-sm text-gray-300">
-              Powered by - ISA ERP Pvt Ltd
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
