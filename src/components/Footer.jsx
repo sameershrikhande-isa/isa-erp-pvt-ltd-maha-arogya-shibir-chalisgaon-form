@@ -89,7 +89,7 @@ const Footer = () => {
                 <span className="text-xs text-gray-500">Powered by</span>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-blue-300">Digital Healthcare Solutions</span>
+                  <span className="text-sm font-medium text-blue-300">ISA ERP Pvt Ltd</span>
                 </div>
               </div>
             </div>
