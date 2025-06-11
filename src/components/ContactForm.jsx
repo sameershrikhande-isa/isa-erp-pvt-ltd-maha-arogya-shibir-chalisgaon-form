@@ -27,7 +27,20 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">Contact Form</h2>
+      {/* Header Section */}
+      <div className="text-center mb-6">
+        <h1 className="text-2xl font-bold text-gray-800 mb-2">
+          Maha Arogya Shibir Chalisgaon
+        </h1>
+        <p className="text-sm text-gray-600 mb-1">
+          Rotary Club Thane Northend (3142)
+        </p>
+        <p className="text-xs text-gray-500">
+          Powered by - ISA ERP Pvt Ltd
+        </p>
+      </div>
+
+      <h2 className="text-xl font-semibold mb-6 text-gray-800">Registration Form</h2>
       
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Full Name Field */}
