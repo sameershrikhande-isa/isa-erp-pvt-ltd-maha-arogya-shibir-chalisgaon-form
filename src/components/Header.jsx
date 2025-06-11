@@ -73,8 +73,8 @@ const Header = () => {
                 District 3142
               </p>
               <div className="flex items-center justify-end space-x-2 mt-2">
-                <svg className="w-4 h-4 xl:w-5 xl:h-5 text-blue-300" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                <svg className="w-4 h-4 xl:w-5 xl:h-5 text-blue-300" fill="currentColor" viewBox="0 0 20 20" strokeWidth="3">
+                  <path fillRule="evenodd" d="M10 1a2 2 0 012 2v4h4a2 2 0 110 4h-4v4a2 2 0 11-4 0v-4H4a2 2 0 110-4h4V3a2 2 0 012-2z" clipRule="evenodd" />
                 </svg>
                 <span className="text-blue-200 text-sm xl:text-base">Community Health Initiative</span>
               </div>
