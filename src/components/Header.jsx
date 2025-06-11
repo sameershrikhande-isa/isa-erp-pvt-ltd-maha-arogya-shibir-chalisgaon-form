@@ -4,41 +4,35 @@ const Header = () => {
       {/* Subtle Background Enhancement */}
       <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
       
-      <div className="relative max-w-5xl mx-auto px-6 py-12 text-center">
+      <div className="relative max-w-4xl mx-auto px-6 py-8 text-center">
         {/* Main Event Title */}
-        <h1 className="mb-4">
-          <span className="block text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white to-blue-50 bg-clip-text text-transparent tracking-tight leading-tight">
+        <h1 className="mb-3">
+          <span className="block text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-blue-50 bg-clip-text text-transparent tracking-tight leading-tight">
             Maha Arogya Shibir
           </span>
-          <span className="block text-2xl sm:text-3xl lg:text-4xl font-medium mt-2 text-blue-100 tracking-wide">
+          <span className="block text-xl sm:text-2xl lg:text-3xl font-medium mt-1 text-blue-100 tracking-wide">
             Chalisgaon
           </span>
         </h1>
         
         {/* Subtitle */}
-        <p className="text-blue-100 text-lg sm:text-xl mb-8 font-light">
+        <p className="text-blue-100 text-base sm:text-lg mb-4 font-light">
           Healthcare Registration Portal
         </p>
         
         {/* Refined Decorative Element */}
-        <div className="flex items-center justify-center mb-8">
-          <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent w-24"></div>
-          <div className="mx-4">
-            <div className="w-2 h-2 bg-white rounded-full"></div>
+        <div className="flex items-center justify-center mb-4">
+          <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent w-20"></div>
+          <div className="mx-3">
+            <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
           </div>
-          <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent w-24"></div>
+          <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent w-20"></div>
         </div>
         
-        {/* Clean Powered By */}
-        <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm px-5 py-2.5 rounded-full border border-white/20">
-          <span className="text-sm text-blue-100">Powered by</span>
-          <img 
-            src="/isa-logo-favicon.jpg" 
-            alt="ISA Logo" 
-            className="w-6 h-6 rounded-full border border-white/30"
-          />
-          <span className="text-sm font-medium text-white">ISA ERP Pvt Ltd</span>
-        </div>
+        {/* Rotary Club Information */}
+        <p className="text-blue-200 text-sm sm:text-base font-medium">
+          Rotary Club Thane Northend (3142)
+        </p>
       </div>
     </header>
   )
