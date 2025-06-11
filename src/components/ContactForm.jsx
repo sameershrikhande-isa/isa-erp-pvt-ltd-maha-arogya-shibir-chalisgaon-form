@@ -55,99 +55,112 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-      <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">
-          Maha Arogya Shibir Chalisgaon
-        </h1>
-        <p className="text-sm text-gray-600 mb-1">
-          Rotary Club Thane Northend (3142)
-        </p>
-        <p className="text-xs text-gray-500">
-          Powered by - ISA ERP Pvt Ltd
-        </p>
+    <div className="min-h-screen bg-gray-50 py-4 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        {/* Header Section */}
+        <div className="bg-blue-600 text-white px-6 py-6 text-center">
+          <h1 className="text-xl sm:text-2xl font-bold mb-2">
+            Maha Arogya Shibir Chalisgaon
+          </h1>
+          <p className="text-sm sm:text-base mb-1 opacity-90">
+            Rotary Club Thane Northend (3142)
+          </p>
+          <p className="text-xs opacity-75">
+            Powered by - ISA ERP Pvt Ltd
+          </p>
+        </div>
+
+        {/* Form Section */}
+        <div className="px-6 py-6">
+          <h2 className="text-lg sm:text-xl font-semibold mb-6 text-gray-800 text-center">
+            Registration Form
+          </h2>
+          
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            {/* Full Name Field */}
+            <div>
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                Full Name *
+              </label>
+              <input
+                id="fullName"
+                type="text"
+                {...register('fullName')}
+                className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                placeholder="Enter your full name"
+              />
+              {errors.fullName && (
+                <p className="text-red-500 text-sm mt-2">{errors.fullName.message}</p>
+              )}
+            </div>
+
+            {/* Mobile Number Field */}
+            <div>
+              <label htmlFor="mobileNumber" className="block text-sm font-medium text-gray-700 mb-2">
+                Mobile Number *
+              </label>
+              <input
+                id="mobileNumber"
+                type="tel"
+                {...register('mobileNumber')}
+                className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                placeholder="1234567890"
+              />
+              {errors.mobileNumber && (
+                <p className="text-red-500 text-sm mt-2">{errors.mobileNumber.message}</p>
+              )}
+            </div>
+
+            {/* Village Field */}
+            <div>
+              <label htmlFor="village" className="block text-sm font-medium text-gray-700 mb-2">
+                Village
+              </label>
+              <input
+                id="village"
+                type="text"
+                {...register('village')}
+                className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                placeholder="Enter your village (optional)"
+              />
+              {errors.village && (
+                <p className="text-red-500 text-sm mt-2">{errors.village.message}</p>
+              )}
+            </div>
+
+            {/* Checkup Category Field */}
+            <div>
+              <label htmlFor="checkupCategory" className="block text-sm font-medium text-gray-700 mb-2">
+                Checkup Category *
+              </label>
+              <select
+                id="checkupCategory"
+                {...register('checkupCategory')}
+                className="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors appearance-none bg-white"
+              >
+                <option value="">Select checkup category</option>
+                {checkupCategories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+              {errors.checkupCategory && (
+                <p className="text-red-500 text-sm mt-2">{errors.checkupCategory.message}</p>
+              )}
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 text-base mt-6 touch-manipulation"
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Registration'}
+            </button>
+          </form>
+        </div>
       </div>
-
-      <h2 className="text-xl font-semibold mb-6 text-gray-800">Registration Form</h2>
-      
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div>
-          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
-            Full Name *
-          </label>
-          <input
-            id="fullName"
-            type="text"
-            {...register('fullName')}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Enter your full name"
-          />
-          {errors.fullName && (
-            <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="mobileNumber" className="block text-sm font-medium text-gray-700 mb-1">
-            Mobile Number *
-          </label>
-          <input
-            id="mobileNumber"
-            type="tel"
-            {...register('mobileNumber')}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="1234567890"
-          />
-          {errors.mobileNumber && (
-            <p className="text-red-500 text-sm mt-1">{errors.mobileNumber.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="village" className="block text-sm font-medium text-gray-700 mb-1">
-            Village
-          </label>
-          <input
-            id="village"
-            type="text"
-            {...register('village')}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Enter your village (optional)"
-          />
-          {errors.village && (
-            <p className="text-red-500 text-sm mt-1">{errors.village.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="checkupCategory" className="block text-sm font-medium text-gray-700 mb-1">
-            Checkup Category *
-          </label>
-          <select
-            id="checkupCategory"
-            {...register('checkupCategory')}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
-            <option value="">Select checkup category</option>
-            {checkupCategories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-          {errors.checkupCategory && (
-            <p className="text-red-500 text-sm mt-1">{errors.checkupCategory.message}</p>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 text-white font-medium py-2 px-4 rounded-md transition duration-200"
-        >
-          {isSubmitting ? 'Submitting...' : 'Submit Registration'}
-        </button>
-      </form>
     </div>
   )
 }
